@@ -4,7 +4,7 @@
   "description": "Don't think about switching between layouts when switching to another workspace. Let this app do it for you.",
   "main": "i3-autokeymap.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha || true"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/f0s3/i3-autokeymap/issues"
   },
-  "homepage": "https://github.com/f0s3/i3-autokeymap#readme"
+  "homepage": "https://github.com/f0s3/i3-autokeymap#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
 }
