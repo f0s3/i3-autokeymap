@@ -10,5 +10,5 @@ setInterval(() => {
 			if (config[focusedWorkspace(workspaceActivityArray).num] !== stdOut) exec('xkblayout-state set +1')
 		})
 	})
-}, 400)
+}, 150)
 module.exports.focusedWorkspace = focusedWorkspace
