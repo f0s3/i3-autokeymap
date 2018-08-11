@@ -1,10 +1,7 @@
 const config = require('./config/config')
 const exec = require('child_process').exec
 
-let focusedWorkspace = function(array) {
-	array.forEach(i => {if (i.focused) workspaceObj = i})
-	return workspaceObj;
-}
+let focusedWorkspace = (array) => { return array.find(i => i.focused) }
 
 setInterval(() => {
 	exec('i3-msg -t get_workspaces', (error, stdOut, stdErr) => {
