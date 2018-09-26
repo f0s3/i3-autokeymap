@@ -11,8 +11,8 @@ gives you something like
 ## Dependencies used
 This project by now uses these dependencies:
 * [xkblayout-state](https://github.com/nonpop/xkblayout-state) (for checking current layout and switching to the next one)
-* [node.js](https://nodejs.org/en/) (for running this project) and npm (for downloading module globally on your pc)
-* 'child_process' npm module (for executing shell commands and getting the results of them)
+* [node.js](https://nodejs.org/) (for running this project) and npm (for downloading module globally on your pc)
+* [child_process](https://www.npmjs.com/package/child_process) npm module (for executing shell commands and getting the results of them)
 ## Installation
 Use this oneliner in the folder you want to install i3-autokeymap.
 
