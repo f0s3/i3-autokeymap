@@ -14,4 +14,4 @@ This project by now uses these dependencies:
 * [node.js](https://nodejs.org/en/) (for running this project) and npm (for downloading module globally on your pc)
 * 'child_process' npm module (for executing shell commands and getting the results of them)
 ## Installation
-    git clone https://github.com/f0s3/i3-autokeymap && cd i3-autokeymap/dependencies && make && cd .. && sudo npm i child_process -g
+    git clone https://github.com/f0s3/i3-autokeymap && cd i3-autokeymap/dependencies && make && mv xkblayout-state .. && cd .. && sudo npm i child_process -g && sudo rm -r dependencies
