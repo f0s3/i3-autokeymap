@@ -5,16 +5,14 @@ let previousWorkspace = 1;
 let currentWorkspace = 1;
 let layoutOrder = {}
 
-exec('setxkbmap -query | grep layout', (stdIn, keyboardInfo, stdErr) => {
-	let layoutInfo = keyboardInfo.replace('layout:', '').trim().split(/,/).forEach((k, i) => {layoutOrder[k] = i})
+exec('setxkbmap -query | grep layout | cut -c 13-', (stdIn, keyboardInfo, stdErr) => {
+	keyboardInfo.trim().split(',').forEach((k, i) => {layoutOrder[k] = i})
 	setInterval(() => {
-		exec('i3-msg -t get_workspaces', (error, fullWorkspaceInfo, stdErr) => {
-			let workspaceActivityArray = JSON.parse(fullWorkspaceInfo).map(k => { return { num: k.num, focused: k.focused } })
-			let currentWorkspace = workspaceActivityArray.find(i => i.focused).num
+		exec('i3-msg -t get_workspaces', (stdIn, fullWorkspaceInfo, stdErr) => {
+			let currentWorkspace = JSON.parse(fullWorkspaceInfo).find(i => i.focused).num
 			if (currentWorkspace == previousWorkspace) {
 				exec('./xkblayout-state print %s', (stdIn, currentLayout, stdErr) => {
 					if (currentLayout != config[currentWorkspace]) config[currentWorkspace] = currentLayout
-					
 				})
 			} else {
 				exec('./xkblayout-state print %s', (stdIn, currentLayout, stdErr) => {
