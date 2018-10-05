@@ -7,9 +7,9 @@ currentWorkspace = 1
 layoutOrder = {}
 
 def shell(cmd):
-    return sp.check_output(cmd.split(), universal_newlines=True) 
+    return sp.run(cmd, stdout=sp.PIPE, shell=True).stdout.decode("utf8")
 
-keyboardInfo = shell("./keyboardInfo.sh").strip()
+keyboardInfo = shell("setxkbmap -query | grep layout | cut -c 13-").strip()
 for index, e in enumerate(keyboardInfo.split(",")):
     layoutOrder[e] = index
 
