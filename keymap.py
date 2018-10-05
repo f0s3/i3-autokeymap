@@ -19,10 +19,10 @@ with open("./config/config.json", "r+") as f:
 while(True):
     currentWorkspace = [i["num"] for i in json.loads(shell("i3-msg -t get_workspaces")) if i["focused"]][0]
     if currentWorkspace == previousWorkspace:
-        currentLayout = shell("./xkblayout-state print %s")
+        currentLayout = shell("xkblayout-state print %s")
         if currentLayout != config[currentWorkspace]: config[currentWorkspace] = currentLayout
     else:
-        if shell("./xkblayout-state print %s") != config[currentWorkspace]:
-            os.system("./xkblayout-state set {}".format(layoutOrder[config[currentWorkspace]]))
+        if shell("xkblayout-state print %s") != config[currentWorkspace]:
+            os.system("xkblayout-state set {}".format(layoutOrder[config[currentWorkspace]]))
         previousWorkspace = currentWorkspace
     time.sleep(100/1000)
