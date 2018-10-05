@@ -7,7 +7,7 @@ This project by now uses these dependencies:
 * [xkblayout-state](https://github.com/nonpop/xkblayout-state) (for checking current layout and switching to the next one)
 ## Installation
 It usually depends on what linux flavor you are using.
-### Debian, Ubuntu and other .deb distros
+### Debian, Ubuntu and other .deb distros:
 1. https://github.com/nonpop/xkblayout-state#compilation-and-installation (as official docs say...)
 
 2. `cd` to a desired directory(usually you want this to be in `~/.config/`) and `git clone https://github.com/f0s3/i3-autokeymap`
