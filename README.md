@@ -14,7 +14,7 @@ It usually depends on what linux flavor you are using.
 ### Arch, Manjaro, Antergos and other AUR users:
 1. `yaourt -S xkblayout-state-git`
 
-2. [Same as in Debian](https://github.com/f0s3/i3-autokeymap#)
+2. [Same as in Debian](https://github.com/f0s3/i3-autokeymap#debian-ubuntu-and-other-deb-distros)
 ## Running and adding to i3wm config file
 To run script use `python3 keymap.py`
 
