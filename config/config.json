@@ -12,6 +12,7 @@
 	],
 	"programs": [
 		{ "dmenu": "us" },
-		{ "i3lock-fancy": "us" }
+		{ "i3lock-fancy": "us" },
+		{ "i3lock": "us" }
 	]
 }
