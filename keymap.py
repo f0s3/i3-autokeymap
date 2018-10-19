@@ -1,4 +1,4 @@
-import os,time,json
+import os,time,json,psutil
 import subprocess as sp
 
 previousWorkspace = 1
@@ -17,6 +17,10 @@ with open("./config/config.json", "r+") as f:
 
 while(True):
     currentWorkspace = [i["num"] for i in json.loads(shell("i3-msg -t get_workspaces")) if i["focused"]][0]
+    for program in config["programs"]:
+        for process in psutil.process_iter():
+            if process.name() == list(program.keys())[0]:
+                os.system("xkblayout-state set {}".format(layoutOrder[list(filter(lambda x: process.name() in x, config["programs"]))[0][process.name()]]))
     if currentWorkspace == previousWorkspace:
         currentLayout = shell("xkblayout-state print %s")
         if currentLayout != config["workspaces"][currentWorkspace]: config["workspaces"][currentWorkspace] = currentLayout
