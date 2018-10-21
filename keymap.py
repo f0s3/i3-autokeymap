@@ -5,10 +5,8 @@ previousWorkspace = 1
 currentWorkspace = 1
 layoutOrder = {}
 
-
 def shell(cmd):
     return sp.run(cmd, stdout=sp.PIPE, shell=True).stdout.decode("utf8")
-
 
 keyboardInfo = shell("setxkbmap -query | grep layout | cut -c 13-").strip()
 for index, e in enumerate(keyboardInfo.split(",")):
@@ -24,7 +22,6 @@ while True:
         if currentLayout != config["workspaces"][currentWorkspace]: config["workspaces"][currentWorkspace][currentWorkspace] = currentLayout
     else:
         if shell("xkblayout-state print %s") != config["workspaces"][currentWorkspace][currentWorkspace]:
-            print(config["workspaces"][currentWorkspace])
             os.system("xkblayout-state set {}".format(layoutOrder[config["workspaces"][currentWorkspace][currentWorkspace]]))
         previousWorkspace = currentWorkspace
     time.sleep(100 / 1000)
