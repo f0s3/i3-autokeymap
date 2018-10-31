@@ -3,6 +3,7 @@ import subprocess as sp
 
 previousWorkspace = 1
 currentWorkspace = 1
+appLaunched = False
 layoutOrder = {}
 
 def shell(cmd):
@@ -18,14 +19,18 @@ with open("./config/config.json", "r+") as f:
 def programIsRunning(programName):
     for process in psutil.process_iter():
         if process.name() == programName:
-            return process.name()
-    return process.name()
+            return True
+    return False
 
 while True:
     currentWorkspace = [i["num"] for i in json.loads(shell("i3-msg -t get_workspaces")) if i["focused"]][0]
     for program in config["programs"]:
-        if programIsRunning(list(program.keys())[0]) == list(program.keys())[0]:
+        if programIsRunning(list(program.keys())[0]):
             os.system("xkblayout-state set {}".format(layoutOrder[list(filter(lambda x: list(program.keys())[0] in x, config["programs"]))[0][list(program.keys())[0]]]))
+            appLaunched = True
+        elif appLaunched:
+            appLaunched = False
+            currentWorkspace = currentWorkspace + 1
     if currentWorkspace == previousWorkspace:
         currentLayout = shell("xkblayout-state print %s")
         if currentLayout != config["workspaces"][currentWorkspace][currentWorkspace]: config["workspaces"][currentWorkspace][currentWorkspace] = currentLayout
