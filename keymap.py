@@ -29,8 +29,8 @@ while True:
             os.system("xkblayout-state set {}".format(layoutOrder[list(filter(lambda x: list(program.keys())[0] in x, config["programs"]))[0][list(program.keys())[0]]]))
             appLaunched = True
         elif appLaunched:
+            if currentWorkspace == previousWorkspace: currentWorkspace+=1
             appLaunched = False
-            currentWorkspace = currentWorkspace + 1
     if currentWorkspace == previousWorkspace:
         currentLayout = shell("xkblayout-state print %s")
         if currentLayout != config["workspaces"][currentWorkspace][currentWorkspace]: config["workspaces"][currentWorkspace][currentWorkspace] = currentLayout
