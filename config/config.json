@@ -11,8 +11,9 @@
 		{ 8: "us" }
 	],
 	"programs": [
-		{ "dmenu": "us" },
-		{ "i3lock-fancy": "us" },
-		{ "i3lock": "us" }
-	]
+		{ "dmenu": "us" }
+	],
+	"focusedWindows": {
+		{ "telegram": "ru" }
+	}
 }
