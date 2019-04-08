@@ -13,7 +13,7 @@ It usually depends on what linux flavor you are using.
 
 2. `cd` to a desired directory(usually you want this to be in `~/.config/`) and `git clone https://github.com/f0s3/i3-autokeymap`
 ### Arch, Manjaro, Antergos and other AUR users:
-1. `yaourt -S xkblayout-state-git`
+1. `pacaur -S xkblayout-state-git`
 
 2. `sudo pip3 install psutil` for installing psutil globally or `pip3 install --user psutil` for current user
 
