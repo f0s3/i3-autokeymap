@@ -35,6 +35,7 @@ while True:
         currentLayout = shell("xkblayout-state print %s")
         if currentLayout != config["workspaces"][currentWorkspace][currentWorkspace]: config["workspaces"][currentWorkspace][currentWorkspace] = currentLayout
     else:
+        print("config file: " + config["workspaces"] + "\n\nCurrentWorkspace: " + currentWorkspace)
         if shell("xkblayout-state print %s") != config["workspaces"][currentWorkspace][currentWorkspace]:
             os.system("xkblayout-state set {}".format(layoutOrder[config["workspaces"][currentWorkspace][currentWorkspace]]))
         previousWorkspace = currentWorkspace
